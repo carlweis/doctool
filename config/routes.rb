@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "static#home"
 
+  resources :documents
+
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations",
@@ -8,6 +10,4 @@ Rails.application.routes.draw do
     passwords: "users/passwords",
     unlocks: "users/unlocks",
   }
-
-
 end

@@ -13,6 +13,7 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.11"
 gem "redis", "~> 4.0"
 gem "sass-rails", "~> 5.0"
+gem "simple_form"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
@@ -25,6 +26,9 @@ group :test do
   gem "rspec-rails"
   gem "capybara"
   gem "factory_bot_rails"
+  gem "shoulda-matchers"
+  gem "spring-commands-rspec"
+  gem "webmock"
 end
 
 group :development do
