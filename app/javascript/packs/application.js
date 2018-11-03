@@ -9,9 +9,9 @@
 
 // import styles
 import "../src/application";
+
 // import trix editor
 import "trix";
-
 
 // import images
 import 'images/doctool.png'
