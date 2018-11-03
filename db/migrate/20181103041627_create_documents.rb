@@ -2,7 +2,7 @@ class CreateDocuments < ActiveRecord::Migration[5.2]
   def change
     create_table :documents do |t|
       t.references :user
-      t.string :title, null: false, default: true, unique: true
+      t.string :title, null: false, default: "", unique: true
       t.text :content, null: false, default: ""
       t.string :state, null: false, default: "draft"
       t.string :permalink, null: false, default: ""

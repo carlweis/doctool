@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_041627) do
 
   create_table "documents", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "title", default: "t", null: false
+    t.string "title", default: "", null: false
     t.text "content", default: "", null: false
     t.string "state", default: "draft", null: false
     t.string "permalink", default: "", null: false
