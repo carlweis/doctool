@@ -11,5 +11,6 @@
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
+    "trix": "^1.0.0"
   }
 }
