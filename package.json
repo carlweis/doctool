@@ -1,5 +1,7 @@
 {
   "name": "doctool",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "trix": "^1.0.0"
+  }
 }
