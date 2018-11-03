@@ -5,6 +5,7 @@ ruby "2.5.1"
 
 gem "rails", "~> 5.2.1"
 
+gem "awesome_print"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "devise"
 gem "jbuilder", "~> 2.5"
@@ -17,10 +18,10 @@ gem "simple_form"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "webpacker"
+gem "pry-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "pry"
 end
 
 group :test do

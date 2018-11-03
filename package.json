@@ -2,6 +2,7 @@
   "name": "doctool",
   "private": true,
   "dependencies": {
+    "trix": "^1.0.0",
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.6.2",
@@ -9,6 +10,8 @@
     "react-dom": "^16.6.0"
   },
   "devDependencies": {
+    "webpack-dev-server": "2.11.2",
+    "trix": "^1.0.0",
     "webpack-dev-server": "2.11.2"
   }
 }

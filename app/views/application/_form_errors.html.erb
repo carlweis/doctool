@@ -1,0 +1,12 @@
+<% if record.errors.any? %>
+  <div class="form-errors">
+    <div>
+      There were some errors that prevented the <%= record.class.to_s.humanize %> from saving.
+    </div>
+    <ul class="error-list">
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<div class="content-container">
+  <header class="flex space-between items-center">
+    <h1><%= @document.title %></h1>
+    <div>
+      <%= link_to @document.permalink,
+        document_path(id: @document.permalink)
+      %>
+    <div>
+      <%= link_to "Make Changes", edit_document_path(@document) %>
+    </div>
+  </header>
+
+  <div class="trix-content">
+    <%= sanitize @document.content %>
+  </div>
+</div>
