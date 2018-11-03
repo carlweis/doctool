@@ -1,1 +1,20 @@
-<h1>Docs</h1>
+<div class="content-container">
+  <header>
+    <h1>My Documents</h1>
+  </header>
+
+  <div class="documents">
+    <% @documents.each do |document| %>
+      <div class="document-list-item flex space-between items-center bg-white">
+        <div class="document-title">
+          <%= document.title %>
+        </div>
+        <div class="document-created-at">
+          <%= document.created_at.strftime("%m-%d-%Y %h:%i%s") %>
+        </div>
+        <div class="document-state state-<%= document.state.parameterize %>">
+          <%= document.state %>
+        </div>
+      </div>
+    <% end %>
+</div>

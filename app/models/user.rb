@@ -3,5 +3,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
+  # associations
+  has_many :documents
+
+  # validations
   validates :name, presence: true
 end
