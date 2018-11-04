@@ -69,10 +69,14 @@ html, body {
 .white { color: #ffffff; }
 .light-blue { color: #cbeefa; }
 .dark-blue { color: #2c3445; }
+.teal { color: #2098a1; }
+.orange { color: #f07438; }
 
 .bg-white { background: #ffffff; }
 .bg-light-blue { background: #cbeefa; }
 .bg-dark-blue { background: #2c3445; }
+.bg-teal { background: #2098a1; }
+.bg-orange { background: #f07438; }
 
 /* navigation */
 .navigation {
@@ -85,6 +89,7 @@ html, body {
   padding: 0 1rem;
   box-shadow: 1px 0 2px rgba(121, 121, 121, 0.5);
   margin-bottom: 1px;
+  border-top: solid 4px #f07438;
 }
 .navigation a {
   text-decoration: none;
@@ -92,12 +97,12 @@ html, body {
 }
 .navigation a:hover,
 .navigation a:focus {
-  color: #cbeefa;
+  color: #f07438;
 }
 
 .navigation a.link-button {
-  background: #ffffff;
-  color: #295bad;
+  background: #2098a1;
+  color: #ffffff;
   padding: 0.25rem .5rem;
   text-align: center;
   display: inline-block;
@@ -105,8 +110,8 @@ html, body {
   border-radius: 3px;
 }
 .navigation a.link-button:hover {
-  background: #cbeefa;
-  color: #295bad;
+  background: #2098a1;
+  color: #ffffff;
 }
 
 /* flash messages */
