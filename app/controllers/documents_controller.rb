@@ -14,16 +14,24 @@ class DocumentsController < ApplicationController
     @document.user = current_user
     @document.permalink = @document.title.parameterize
 
-    if @document.save
+    if @document.save!
       flash[:success] = "New document #{@document.title} created!"
-      redirect_to @document
+
+      respond_to do |format|
+        format.html do
+          redirect_to edit_document_path(@document)
+        end
+        format.json do
+          render :show, status: :created, location: @document
+        end
+      end
     else
       render :new
     end
   end
 
   def show
-    @document = Document.find_by_id_or_permalink(id: params[:id])
+    @document = current_user.documents.find_by_id_or_permalink(id: params[:id])
 
     if !@document
       flash[:error] = "Document #{params[:id]} not found."
@@ -32,7 +40,7 @@ class DocumentsController < ApplicationController
   end
 
   def edit
-    @document = Document.find_by(id: params[:id])
+    @document = current_user.documents.find_by(id: params[:id])
 
     if !@document
       flash[:error] = "Document #{params[:id]} not found."
@@ -45,7 +53,14 @@ class DocumentsController < ApplicationController
 
     if @document.update(document_params)
       flash[:success] = "New document #{@document.title} saved!"
-      redirect_to @document
+      respond_to do |format|
+        format.html do
+          redirect_to edit_document_path(@document)
+        end
+        format.json do
+          render :show, status: :created, location: @document
+        end
+      end
     else
       render :edit
     end
@@ -56,7 +71,10 @@ class DocumentsController < ApplicationController
   def document_params
     params.require(:document).permit(
       :title,
+      :hero_image,
       :content,
+      :attachments,
+      { attachments: [] }
     )
   end
 end

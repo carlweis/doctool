@@ -12,6 +12,7 @@ import "../src/application";
 
 // import trix editor
 import "trix";
+import "../trix_uploads";
 
 // import images
 import 'images/doctool.png'

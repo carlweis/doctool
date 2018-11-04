@@ -1,6 +1,11 @@
 class Document < ApplicationRecord
   belongs_to :user
 
+  before_save :set_permalink
+
+  mount_uploaders :attachments, AttachmentUploader
+  mount_uploader :hero_image, DocumentImageUploader
+
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true
   validates :state, presence: true
@@ -12,5 +17,11 @@ class Document < ApplicationRecord
     else
       find_by(permalink: id.downcase.parameterize)
     end
+  end
+
+  private
+
+  def set_permalink
+    self.permalink = title.parameterize
   end
 end

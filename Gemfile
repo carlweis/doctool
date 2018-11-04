@@ -7,6 +7,7 @@ gem "rails", "~> 5.2.1"
 
 gem "awesome_print"
 gem "bootsnap", ">= 1.1.0", require: false
+gem "carrierwave"
 gem "devise"
 gem "jbuilder", "~> 2.5"
 gem "mini_magick", "~> 4.8"
