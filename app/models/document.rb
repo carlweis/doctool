@@ -1,5 +1,6 @@
 class Document < ApplicationRecord
   belongs_to :user
+
   before_save :set_permalink
 
   mount_uploaders :attachments, AttachmentUploader
