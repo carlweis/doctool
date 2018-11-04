@@ -14,6 +14,10 @@ trix-editor, .trix-content {
 .trix-content {
   box-shadow: -0.4rem 0.4rem 2rem rgba(0, 0, 0, 0.1);
 }
+.trix-content .attachment__name,
+.trix-content .attachment__size {
+  display: none;
+}
 trix-editor pre, .trix-content pre {
   background: #eee;
   padding: 1rem;

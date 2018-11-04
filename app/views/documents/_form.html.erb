@@ -5,13 +5,21 @@
     <br/>
   </div>
 
-  <div class="content-editor">
-    <label for="document_content" aria-label="Document Content" aria-hidden="true"/>
-    <%= form.input :content, as: :hidden, label: false, required: true %>
-    <trix-editor input="document_content"></trix-editor>
+  <div class="attachment-upload">
+    <%= form.input :attachments, as: :file, input_html: { multiple: true } %>
+    <br/>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
+
+  <br/>
+
+  <div class="content-editor">
+    <label for="document_content" aria-label="Document Content" aria-hidden="true"/>
+    <%= form.input :content, as: :hidden, label: false, required: true %>
+    <trix-editor data-id="<%= @document.id %>" input="document_content"></trix-editor>
+  </div>
+
 <% end %>
