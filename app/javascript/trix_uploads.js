@@ -22,7 +22,7 @@ function uploadAttachment(attachment, event) {
       var data = JSON.parse(xhr.responseText);
       attachment.setAttributes({
         url: data.file.url,
-        href: data.file.url,
+        //href: data.file.url,
       });
     }
   }
