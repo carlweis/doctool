@@ -3,6 +3,7 @@ class Document < ApplicationRecord
   before_save :set_permalink
 
   mount_uploaders :attachments, AttachmentUploader
+  mount_uploader :hero_image, DocumentImageUploader
 
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true

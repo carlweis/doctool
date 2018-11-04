@@ -1,25 +1,49 @@
 <%= simple_form_for @document do |form| %>
-  <%= render partial: "form_errors", locals: { record: @document } %>
-  <div>
-    <%= form.input :title, input_html: { class: "form-input" } %>
-    <br/>
+  <div class="flex space-between">
+    <div class="document-editor-container" style="width: 75%">
+      <%= render partial: "form_errors", locals: { record: @document } %>
+      <div>
+        <%= form.input :title, input_html: { class: "form-input" } %>
+        <br/>
+      </div>
+
+      <div class="content-editor">
+        <label for="document_content" aria-label="Document Content" aria-hidden="true"/>
+        <%= form.input :content, as: :hidden, label: false, required: true %>
+        <trix-editor data-id="<%= @document.id %>" input="document_content"></trix-editor>
+      </div>
+    </div>
+    <div class="document-sidebar" style="padding: 0 2rem; width: 25%;">
+      <div class="document-hero">
+        <%= form.label :hero_image %><br/>
+        <%= form.input :hero_image, as: :file, label: false %>
+
+        <br/>
+        <% if @document.hero_image.present? %>
+          <div class="document-hero-image"
+              style="background-image: url(<%= @document.hero_image.url %>);
+                      background-size: cover;
+                      background-position: center;
+                      background-repeat: no-repeat;
+                      width: 100%; height: 300px;">
+          </div>
+        <div>
+          <%= @document.hero_image.url.split("/").last %>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="attachment-upload">
+        <br/>
+        <%= form.label :attachments %><br/>
+        <%= form.input :attachments, as: :file, label: false,
+                        input_html: { multiple: true } %>
+        <br/>
+      </div>
+
+      <div class="form-actions">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
-
-  <div class="attachment-upload">
-    <%= form.input :attachments, as: :file, input_html: { multiple: true } %>
-    <br/>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-
-  <br/>
-
-  <div class="content-editor">
-    <label for="document_content" aria-label="Document Content" aria-hidden="true"/>
-    <%= form.input :content, as: :hidden, label: false, required: true %>
-    <trix-editor data-id="<%= @document.id %>" input="document_content"></trix-editor>
-  </div>
-
 <% end %>
